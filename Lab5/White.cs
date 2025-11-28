@@ -103,35 +103,35 @@ namespace Lab5
             int rows = matrix.GetLength(0);
             int cols = matrix.GetLength(1);
 
-       
+            
             if (rows == 1)
                 return new int[0, cols];
 
-         
-            int minR = 0;
-            int minV = matrix[0, 0];
+            
+            int minRow = 0;
+            int minValue = matrix[0, 0];
 
             for (int i = 1; i < rows; i++)
             {
-                if (matrix[i, 0] < minV)
+                if (matrix[i, 0] < minValue)
                 {
-                    minV = matrix[i, 0];
-                    minR = i;
+                    minValue = matrix[i, 0];
+                    minRow = i;
                 }
             }
 
-          
-            int[,] result = new int[rows - 1, cols];
+            
+            answer = new int[rows - 1, cols];
 
-            for (int i = 0, newR = 0; i < rows; i++)
+            for (int i = 0, newRow = 0; i < rows; i++)
             {
-                if (i == minR) continue; 
+                if (i == minRow) continue;
 
                 for (int j = 0; j < cols; j++)
                 {
-                    result[newR, j] = matrix[i, j];
+                    answer[newRow, j] = matrix[i, j];
                 }
-                newR++;
+                newRow++;
             }
             // end
 
