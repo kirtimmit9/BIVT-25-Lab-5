@@ -103,32 +103,31 @@ namespace Lab5
             if (matrix.GetLength(0) == 1)
                 return answer;
 
-
-            int minR = 0;
-            int minV = matrix[0, 0];
+            int minr = 0;
+            int minv = matrix[0, 0];
 
             for (int i = 1; i < matrix.GetLength(0); i++)
             {
-                if (matrix[i, 0] < minV)
+                if (matrix[i, 0] < minv)
                 {
-                    minV = matrix[i, 0];
-                    minR = i;
+                    minv = matrix[i, 0];
+                    minv = i;
                 }
             }
 
-            int r = matrix.GetLength(0) - 1;
-            int c = matrix.GetLength(1);
-            answer = new int[r, c];
+            int rows = matrix.GetLength(0) - 1;
+            int cols = matrix.GetLength(1);
+            answer = new int[rows, cols];
 
-            for (int i = 0, newR = 0; i < matrix.GetLength(0); i++)
+            for (int i = 0, newr = 0; i < matrix.GetLength(0); i++)
             {
-                if (i != minR)
+                if (i != minr)
                 {
-                    for (int j = 0; j < c; j++)
+                    for (int j = 0; j < cols; j++)
                     {
-                        answer[newR, j] = matrix[i, j];
+                        answer[newr, j] = matrix[i, j];
                     }
-                    newR++;
+                    newr++;
                 }
             }
             // end
@@ -276,7 +275,7 @@ namespace Lab5
                 {
                     matrix[i, 1] *= 2;
                 }
-                if (maxI == c - 1)
+                else if (maxI == c - 1)
                 {
                     matrix[i, maxI - 1] *= 2;
                 }
@@ -291,7 +290,7 @@ namespace Lab5
                     }
                     else
                     {
-                        matrix[i, maxI + 1] *= 2;
+                        matrix[i,   maxI + 1] *= 2;
                     }
                 }
             }
